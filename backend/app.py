@@ -266,11 +266,11 @@ def extract_text(file_path, extension):
     """Extract text from common document types."""
     try:
         if extension == "pdf":
-            import fitz  # PyMuPDF
-            doc = fitz.open(file_path)
+            from pypdf import PdfReader
+            reader = PdfReader(file_path)
             text = ""
-            for page in doc:
-                text += page.get_text()
+            for page in reader.pages:
+                text += page.extract_text() or ""
             return text[:5000]
         elif extension in ("txt", "md", "csv", "json", "xml", "html", "log"):
             with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
