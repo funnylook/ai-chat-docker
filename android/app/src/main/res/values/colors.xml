@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#6366F1</color>
+    <color name="bg_primary">#1A1A2E</color>
+    <color name="bg_secondary">#16213E</color>
+    <color name="bg_input">#0F3460</color>
+    <color name="bg_spinner">#2D3748</color>
+    <color name="bubble_assistant">#2D3748</color>
+    <color name="bg_file_bubble">#1E2A4A</color>
+    <color name="text_primary">#F1F5F9</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_hint">#64748B</color>
+    <color name="white">#FFFFFF</color>
+</resources>

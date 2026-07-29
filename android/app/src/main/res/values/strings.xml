@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AI Chat</string>
+    <string name="settings_title">设置</string>
+    <string name="send">发送</string>
+    <string name="hint_message">输入消息...</string>
+    <string name="btn_save">保存</string>
+    <string name="action_settings">设置</string>
+    <string name="action_clear">清空对话</string>
+</resources>

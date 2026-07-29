@@ -1,0 +1,130 @@
+# AI Chat Docker Backend Configuration
+# 
+# 模型配置说明：
+# - id: 模型ID (用于API调用)
+# - name: 显示名称
+# - provider: 上游供应商
+# - api_url: 上游API地址 (如 https://api.openai.com/v1/chat/completions)
+# - api_key: 上游API密钥
+# - supports_reasoning: 是否支持推理强度控制
+# - supports_vision: 是否支持图片理解
+# - supports_files: 是否支持文件上传
+# - max_tokens: 最大输出token数
+# - reasoning_effort_map: 推理强度参数映射
+
+max_upload_mb: 50
+
+# 允许的文件扩展空列表或包含 '*' 表示允许所有类型
+allowed_extensions:
+  - '*'
+
+models:
+  # OpenAI 模型
+  - id: "gpt-4o"
+    name: "GPT-4o"
+    provider: "openai"
+    api_url: "https://api.openai.com/v1/chat/completions"
+    api_key: ""  # 填入你的 OpenAI API Key
+    supports_reasoning: false
+    supports_vision: true
+    supports_files: true
+    max_tokens: 4096
+
+  - id: "gpt-4o-mini"
+    name: "GPT-4o Mini"
+    provider: "openai"
+    api_url: "https://api.openai.com/v1/chat/completions"
+    api_key: ""
+    supports_reasoning: false
+    supports_vision: true
+    supports_files: true
+    max_tokens: 4096
+
+  - id: "o1-preview"
+    name: "o1 Preview (推理)"
+    provider: "openai"
+    api_url: "https://api.openai.com/v1/chat/completions"
+    api_key: ""
+    supports_reasoning: true
+    supports_vision: false
+    supports_files: false
+    max_tokens: 16384
+    supports_thinking_budget: true
+    reasoning_effort_map:
+      low:
+        temperature: 0.3
+        reasoning_effort: "low"
+        thinking_budget: 2048
+      medium:
+        temperature: 0.7
+        reasoning_effort: "medium"
+        thinking_budget: 8192
+      high:
+        temperature: 1.0
+        reasoning_effort: "high"
+        thinking_budget: 32768
+
+  # DeepSeek 模型
+  - id: "deepseek-chat"
+    name: "DeepSeek Chat"
+    provider: "deepseek"
+    api_url: "https://api.deepseek.com/v1/chat/completions"
+    api_key: ""  # 填入你的 DeepSeek API Key
+    supports_reasoning: false
+    supports_vision: false
+    supports_files: true
+    max_tokens: 4096
+
+  - id: "deepseek-reasoner"
+    name: "DeepSeek R1 (推理)"
+    provider: "deepseek"
+    api_url: "https://api.deepseek.com/v1/chat/completions"
+    api_key: ""
+    supports_reasoning: true
+    supports_vision: false
+    supports_files: false
+    max_tokens: 8192
+    supports_thinking_budget: true
+    reasoning_effort_map:
+      low:
+        temperature: 0.3
+        thinking_budget: 2048
+      medium:
+        temperature: 0.7
+        thinking_budget: 8192
+      high:
+        temperature: 1.0
+        thinking_budget: 32768
+
+  # 通义千问
+  - id: "qwen-max"
+    name: "通义千问 Max"
+    provider: "dashscope"
+    api_url: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
+    api_key: ""  # 填入你的通义 API Key
+    supports_reasoning: false
+    supports_vision: false
+    supports_files: true
+    max_tokens: 4096
+
+  # Claude (通过 Anthropic 兼容接口)
+  - id: "claude-sonnet-4-20250514"
+    name: "Claude Sonnet 4"
+    provider: "anthropic"
+    api_url: "https://api.anthropic.com/v1/messages"
+    api_key: ""
+    supports_reasoning: true
+    supports_vision: true
+    supports_files: true
+    max_tokens: 8192
+    supports_thinking_budget: true
+    reasoning_effort_map:
+      low:
+        temperature: 0.3
+        thinking_budget: 2048
+      medium:
+        temperature: 0.7
+        thinking_budget: 8192
+      high:
+        temperature: 1.0
+        thinking_budget: 32768
