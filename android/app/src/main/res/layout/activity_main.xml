@@ -95,8 +95,7 @@
             android:layout_height="32dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="移除文件"
-            android:src="@drawable/ic_close"
-            app:tint="@color/text_secondary" />
+            android:src="@drawable/ic_close" />
     </LinearLayout>
 
     <!-- Progress bar -->
@@ -131,8 +130,7 @@
             android:layout_gravity="center_vertical"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="附件"
-            android:src="@drawable/ic_attach"
-            app:tint="@color/accent" />
+            android:src="@drawable/ic_attach" />
 
         <EditText
             android:id="@+id/edit_message"
@@ -157,8 +155,7 @@
             android:layout_marginStart="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/send"
-            android:src="@drawable.ic_send"
-            app:tint="@color/accent" />
+            android:src="@drawable/ic_send" />
 
     </LinearLayout>
 
