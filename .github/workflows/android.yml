@@ -32,14 +32,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
 
-    - name: Install Gradle
-      run: |
-        sudo apt-get update && sudo apt-get install -y gradle
-        gradle --version
+    - name: Grant execute permission for gradlew
+      run: chmod +x android/gradlew
 
     - name: Build debug APK
       working-directory: ./android
-      run: gradle assembleDebug --no-daemon
+      run: ./gradlew assembleDebug --no-daemon
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
